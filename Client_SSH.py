@@ -6,12 +6,17 @@ user = input("Digite o usuário: ")
 
 senha = input("Digite a senha: ")
 
-comando = input("Digite o comando que deseja realizar: ")
-
 client = paramiko.SSHClient()
 client.set_missing_host_key_policy(paramiko.AutoAddPolicy())
 client.connect(host, username=user, password=senha)
+
 while True:
+
+    print()
+
+    comando = input("Digite o comando que deseja realizar: ")
+
+    print()
 
     stdin, stdout, stderr = client.exec_command(comando)
 
